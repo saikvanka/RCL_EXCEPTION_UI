@@ -8,16 +8,26 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015', 'stage-1']
         }
+      },
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader" 
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
+
   },
   devServer: {
     historyApiFallback: true,
